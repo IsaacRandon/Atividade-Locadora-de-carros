@@ -42,7 +42,7 @@ background-color: #dc3545;
 border-color: #dc3545;
 color: #fff !important;
 }
-/* Estilo para o submenu de tela inteira */
+/* Estilo para o submenu de tela inteira (inicia oculto via classe d-none) */
 .rental-overlay {
 position: fixed;
 top: 0;
@@ -51,7 +51,6 @@ width: 100vw;
 height: 100vh;
 background-color: rgba(0, 0, 0, 0.95);
 z-index: 1050;
-display: none;
 overflow-y: auto;
 }
 </style>
@@ -312,8 +311,8 @@ overflow-y: auto;
 </div>
 </main>
 
-<!-- Submenu de Tela Inteira para Configuração do Aluguel -->
-<div id="rentalOverlay" class="rental-overlay d-flex align-items-center justify-content-center p-4">
+<!-- Submenu de Tela Inteira para Configuração do Aluguel (Iniciado com a classe d-none para ficar oculto) -->
+<div id="rentalOverlay" class="rental-overlay d-none align-items-center justify-content-center p-4">
 <div class="card bg-dark text-light border-secondary border p-4 w-100" style="max-width: 600px;">
 <div class="d-flex justify-content-between align-items-center mb-4">
 <h3 class="fw-bold text-white m-0" id="modalCarTitle">Configurar Aluguel</h3>
@@ -393,11 +392,15 @@ precoDiariaGlobal = precoDiaria;
 document.getElementById('inputDias').value = 1;
 document.getElementById('selectSeguro').value = '30';
 calcularTotal();
-document.getElementById('rentalOverlay').style.display = 'flex';
+const overlay = document.getElementById('rentalOverlay');
+overlay.classList.remove('d-none');
+overlay.classList.add('d-flex');
 }
 
 function fecharSubmenu() {
-document.getElementById('rentalOverlay').style.display = 'none';
+const overlay = document.getElementById('rentalOverlay');
+overlay.classList.remove('d-flex');
+overlay.classList.add('d-none');
 }
 
 function calcularTotal() {
