@@ -3,317 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AutoDrive - Aluguel de Veículos</title>
+<title>AutoDrive - Locadora</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<style>
-:root {
---bs-primary: #dc3545;
---bs-primary-rgb: 220, 53, 69;
-}
-.bg-primary-subtle {
-background-color: rgba(220, 53, 69, 0.1) !important;
-}
-.text-primary {
-color: #dc3545 !important;
-}
-.btn-primary {
-background-color: #dc3545;
-border-color: #dc3545;
-}
-.btn-primary:hover {
-background-color: #b02a37;
-border-color: #a52834;
-}
-.btn-outline-primary {
-color: #dc3545;
-border-color: #dc3545;
-}
-.btn-outline-primary:hover {
-background-color: #dc3545;
-border-color: #dc3545;
-color: #fff;
-}
-.page-link {
-color: #dc3545;
-}
-.page-item.active .page-link {
-background-color: #dc3545;
-border-color: #dc3545;
-color: #fff !important;
-}
-/* Estilo para o submenu de tela inteira (inicia oculto via classe d-none) */
-.rental-overlay {
-position: fixed;
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-color: rgba(0, 0, 0, 0.95);
-z-index: 1050;
-overflow-y: auto;
-}
-</style>
+<link rel="stylesheet" href="pagina3.css">
 </head>
 <body class="bg-black text-light min-vh-100 d-flex flex-column justify-content-between">
+
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-secondary shadow-sm">
 <div class="container">
-<a class="navbar-brand fw-bold text-danger d-flex align-items-center gap-2" href="#">
-<i class="bi bi-car-front-fill fs-3"></i>
-<span>DevTeam</span>
-</a>
-<button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
+<a class="navbar-brand fw-bold text-danger d-flex align-items-center gap-2" href="#"><i class="bi bi-car-front-fill fs-3"></i><span>DevTeam</span></a>
+<button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link text-light" href="index.html">Equipe</a></li>
-<li class="nav-item"><a class="nav-link text-light" href="pagina2.html">Locadora de Veiculos</a></li>
-<li class="nav-item"><a class="nav-link active text-danger fw-bold border-bottom border-danger border-2" href="pagina3.html">.</a></li>
+<li class="nav-item"><a class="nav-link text-light" href="pagina2.html">Locadora</a></li>
+<li class="nav-item"><a class="nav-link active text-danger fw-bold border-bottom border-danger border-2" href="pagina3.html">Frota</a></li>
 </ul>
 </div>
 </div>
 </nav>
 
+<!-- Conteúdo Principal -->
 <main class="container py-5">
 <div class="text-center mb-5">
-<span class="badge bg-danger bg-opacity-10 text-danger fw-semibold px-3 py-2 rounded-pill mb-3">Nossa Frota Completa</span>
+<span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill mb-3">Frota Completa</span>
 <h1 class="display-4 fw-bold mb-2 text-white">Escolha o seu Veículo</h1>
-<p class="text-secondary">Selecione o modelo ideal para a sua jornada e personalize sua locação.</p>
+<p class="text-secondary">Selecione o modelo ideal para a sua jornada.</p>
 </div>
 
-<!-- Grid de 12 carros (3 por fileira -> row-cols-md-3) -->
+<!-- Grid de Cards -->
 <div class="row row-cols-1 row-cols-md-3 g-4">
-<!-- Carro 1 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 1. Onix -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="onix.png" class="card-img-top rounded mb-3" alt="Chevrolet Onix 1.0">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Econômico</span>
-<span class="fw-bold text-success fs-5">R$ 90 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Econômico</span>
+<span class="fw-bold text-success">R$ 90 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Chevrolet Onix 1.0</h5>
+<h5 class="card-title fw-bold text-white">Chevrolet Onix 1.0</h5>
 <p class="card-text text-secondary small mb-3">Perfeito para a cidade, econômico e prático.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Chevrolet Onix 1.0', 90)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Chevrolet Onix 1.0', 90)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 2 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 2. HB20 -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="hb20.webp" class="card-img-top rounded mb-3" alt="Hyundai HB20">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Econômico</span>
-<span class="fw-bold text-success fs-5">R$ 95 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Econômico</span>
+<span class="fw-bold text-success">R$ 95 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Hyundai HB20</h5>
-<p class="card-text text-secondary small mb-3">Moderno, confortável e excelente consumo de combustível.</p>
+<h5 class="card-title fw-bold text-white">Hyundai HB20</h5>
+<p class="card-text text-secondary small mb-3">Moderno, confortável e excelente consumo.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Hyundai HB20', 95)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Hyundai HB20', 95)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 3 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 3. Argo -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="argo.webp" class="card-img-top rounded mb-3" alt="Fiat Argo 1.0">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Econômico</span>
-<span class="fw-bold text-success fs-5">R$ 100 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Econômico</span>
+<span class="fw-bold text-success">R$ 100 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Fiat Argo 1.0</h5>
-<p class="card-text text-secondary small mb-3">Design autêntico e muita agilidade para o dia a dia.</p>
+<h5 class="card-title fw-bold text-white">Fiat Argo 1.0</h5>
+<p class="card-text text-secondary small mb-3">Design autêntico e muita agilidade.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Fiat Argo 1.0', 100)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Fiat Argo 1.0', 100)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 4 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 4. Prisma -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="prisma.webp" class="card-img-top rounded mb-3" alt="Chevrolet Prisma">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Sedan</span>
-<span class="fw-bold text-success fs-5">R$ 140 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Sedan</span>
+<span class="fw-bold text-success">R$ 140 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Chevrolet Prisma</h5>
-<p class="card-text text-secondary small mb-3">Porta-malas espaçoso e conforto para toda a família.</p>
+<h5 class="card-title fw-bold text-white">Chevrolet Prisma</h5>
+<p class="card-text text-secondary small mb-3">Porta-malas espaçoso e conforto familiar.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Chevrolet Prisma', 140)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Chevrolet Prisma', 140)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 5 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 5. Virtus -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="virtus.webp" class="card-img-top rounded mb-3" alt="Volkswagen Virtus">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Sedan</span>
-<span class="fw-bold text-success fs-5">R$ 150 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Sedan</span>
+<span class="fw-bold text-success">R$ 150 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Volkswagen Virtus</h5>
-<p class="card-text text-secondary small mb-3">Tecnologia avançada, sofisticação e segurança.</p>
+<h5 class="card-title fw-bold text-white">Volkswagen Virtus</h5>
+<p class="card-text text-secondary small mb-3">Tecnologia avançada e sofisticação.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Volkswagen Virtus', 150)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Volkswagen Virtus', 150)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 6 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 6. City -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="city.webp" class="card-img-top rounded mb-3" alt="Honda City">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Sedan</span>
-<span class="fw-bold text-success fs-5">R$ 160 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Sedan</span>
+<span class="fw-bold text-success">R$ 160 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Honda City</h5>
-<p class="card-text text-secondary small mb-3">Conforto premium e excelente desempenho na estrada.</p>
+<h5 class="card-title fw-bold text-white">Honda City</h5>
+<p class="card-text text-secondary small mb-3">Conforto premium na estrada.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Honda City', 160)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Honda City', 160)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 7 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 7. Renegade -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="renegade.webp" class="card-img-top rounded mb-3" alt="Jeep Renegade">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">SUV</span>
-<span class="fw-bold text-success fs-5">R$ 210 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">SUV</span>
+<span class="fw-bold text-success">R$ 210 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Jeep Renegade</h5>
-<p class="card-text text-secondary small mb-3">Robustez e estilo para qualquer tipo de terreno.</p>
+<h5 class="card-title fw-bold text-white">Jeep Renegade</h5>
+<p class="card-text text-secondary small mb-3">Robustez e estilo para qualquer terreno.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Jeep Renegade', 210)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Jeep Renegade', 210)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 8 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 8. Creta -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="creta.webp" class="card-img-top rounded mb-3" alt="Hyundai Creta">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">SUV</span>
-<span class="fw-bold text-success fs-5">R$ 230 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">SUV</span>
+<span class="fw-bold text-success">R$ 230 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Hyundai Creta</h5>
-<p class="card-text text-secondary small mb-3">Amplo espaço interno e alta tecnologia embarcada.</p>
+<h5 class="card-title fw-bold text-white">Hyundai Creta</h5>
+<p class="card-text text-secondary small mb-3">Amplo espaço interno e alta tecnologia.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Hyundai Creta', 230)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Hyundai Creta', 230)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 9 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 9. Compass -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="compass.webp" class="card-img-top rounded mb-3" alt="Jeep Compass">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">SUV</span>
-<span class="fw-bold text-success fs-5">R$ 250 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">SUV</span>
+<span class="fw-bold text-success">R$ 250 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Jeep Compass</h5>
-<p class="card-text text-secondary small mb-3">Luxo, potência e máxima segurança para viagens longas.</p>
+<h5 class="card-title fw-bold text-white">Jeep Compass</h5>
+<p class="card-text text-secondary small mb-3">Luxo, potência e máxima segurança.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Jeep Compass', 250)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Jeep Compass', 250)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 10 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 10. Corolla -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="corrola.webp" class="card-img-top rounded mb-3" alt="Toyota Corolla">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Executivo</span>
-<span class="fw-bold text-success fs-5">R$ 280 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Executivo</span>
+<span class="fw-bold text-success">R$ 280 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Toyota Corolla</h5>
-<p class="card-text text-secondary small mb-3">Elegância e alto desempenho para compromissos corporativos.</p>
+<h5 class="card-title fw-bold text-white">Toyota Corolla</h5>
+<p class="card-text text-secondary small mb-3">Elegância e alto desempenho corporativo.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Toyota Corolla', 280)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Toyota Corolla', 280)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 11 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 11. Civic -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="civic.webp" class="card-img-top rounded mb-3" alt="Honda Civic">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Executivo</span>
-<span class="fw-bold text-success fs-5">R$ 310 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Executivo</span>
+<span class="fw-bold text-success">R$ 310 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">Honda Civic</h5>
-<p class="card-text text-secondary small mb-3">Design esportivo, requinte e motorização eficiente.</p>
+<h5 class="card-title fw-bold text-white">Honda Civic</h5>
+<p class="card-text text-secondary small mb-3">Design esportivo e motorização eficiente.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('Honda Civic', 310)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('Honda Civic', 310)">Alugar Carro</button>
+</div></div></div>
 
-<!-- Carro 12 -->
-<div class="col">
-<div class="card h-100 bg-dark text-light border-secondary border p-3">
-<div class="card-body d-flex flex-column justify-content-between">
+<!-- 12. BMW 320i -->
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<img src="320i.webp" class="card-img-top rounded mb-3" alt="BMW 320i">
+<div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
 <div class="d-flex justify-content-between align-items-center mb-2">
-<span class="badge bg-danger bg-opacity-25 text-danger fw-semibold px-3 py-2 rounded-pill">Esportivo/Luxo</span>
-<span class="fw-bold text-success fs-5">R$ 450 <small class="text-secondary fs-6">/dia</small></span>
+<span class="badge bg-danger bg-opacity-25 text-danger">Luxo</span>
+<span class="fw-bold text-success">R$ 450 <small class="text-secondary">/dia</small></span>
 </div>
-<h5 class="card-title fw-bold mt-3 mb-1 text-white">BMW 320i</h5>
-<p class="card-text text-secondary small mb-3">Alto padrão de luxo, velocidade e tecnologia de ponta.</p>
+<h5 class="card-title fw-bold text-white">BMW 320i</h5>
+<p class="card-text text-secondary small mb-3">Alto padrão, velocidade e tecnologia.</p>
 </div>
-<button class="btn btn-outline-primary rounded-pill w-100 mt-2" onclick="abrirSubmenu('BMW 320i', 450)">Alugar Carro</button>
-</div>
-</div>
-</div>
+<button class="btn btn-outline-primary rounded-pill w-100" onclick="abrirSubmenu('BMW 320i', 450)">Alugar Carro</button>
+</div></div></div>
 </div>
 
-<!-- Sistema de Paginação Mantido Intacto (Página 3 Ativa) -->
+<!-- Paginação -->
 <div class="d-flex justify-content-center mt-5">
-<nav aria-label="Page navigation example">
 <ul class="pagination">
-<li class="page-item">
-<a class="page-link bg-dark border-secondary" href="index.html" aria-label="Previous">
-<span aria-hidden="true">&laquo;</span>
-</a>
-</li>
-<li class="page-item"><a class="page-link bg-dark border-secondary" href="index.html">1</a></li>
-<li class="page-item"><a class="page-link bg-dark border-secondary" href="pagina2.html">2</a></li>
-<li class="page-item active"><a class="page-link bg-dark border-secondary" href="pagina3.html">3</a></li>
-<li class="page-item">
-<a class="page-link bg-dark border-secondary" href="pagina3.html" aria-label="Next">
-<span aria-hidden="true">&raquo;</span>
-</a>
-</li>
+<li class="page-item"><a class="page-link bg-dark border-secondary text-danger" href="index.html">&laquo;</a></li>
+<li class="page-item"><a class="page-link bg-dark border-secondary text-light" href="index.html">1</a></li>
+<li class="page-item"><a class="page-link bg-dark border-secondary text-light" href="pagina2.html">2</a></li>
+<li class="page-item active"><a class="page-link bg-danger border-danger text-white" href="pagina3.html">3</a></li>
+<li class="page-item"><a class="page-link bg-dark border-secondary text-danger" href="pagina3.html">&raquo;</a></li>
 </ul>
-</nav>
 </div>
 </main>
 
-<!-- Submenu de Tela Inteira para Configuração do Aluguel (Iniciado com a classe d-none para ficar oculto) -->
+<!-- Modal / Overlay de Aluguel -->
 <div id="rentalOverlay" class="rental-overlay d-none align-items-center justify-content-center p-4">
-<div class="card bg-dark text-light border-secondary border p-4 w-100" style="max-width: 600px;">
+<div class="card bg-dark text-light border-secondary p-4 w-100" style="max-width: 500px;">
 <div class="d-flex justify-content-between align-items-center mb-4">
 <h3 class="fw-bold text-white m-0" id="modalCarTitle">Configurar Aluguel</h3>
 <button type="button" class="btn-close btn-close-white" onclick="fecharSubmenu()"></button>
@@ -324,97 +241,39 @@ overflow-y: auto;
 <input type="number" id="inputDias" class="form-control bg-black text-light border-secondary" value="1" min="1" required oninput="calcularTotal()">
 </div>
 <div class="mb-3">
-<label class="form-label text-secondary small">Multa de Atraso na Devolução (por dia de atraso)</label>
+<label class="form-label text-secondary small">Multa de Atraso (por dia)</label>
 <select id="selectMulta" class="form-select bg-black text-light border-secondary">
-<option value="50">R$ 50,00 / dia (Básica)</option>
-<option value="100" selected>R$ 100,00 / dia (Padrão)</option>
-<option value="200">R$ 200,00 / dia (Rigorosa)</option>
+<option value="50">R$ 50,00 (Básica)</option>
+<option value="100" selected>R$ 100,00 (Padrão)</option>
+<option value="200">R$ 200,00 (Rigorosa)</option>
 </select>
 </div>
 <div class="mb-4">
-<label class="form-label text-secondary small">Proteção / Seguro do Veículo</label>
+<label class="form-label text-secondary small">Proteção / Seguro</label>
 <select id="selectSeguro" class="form-select bg-black text-light border-secondary" onchange="calcularTotal()">
-<option value="0">Sem Seguro Adicional</option>
-<option value="30" selected>Seguro Parcial (+ R$ 30,00/dia)</option>
-<option value="60">Seguro Completo Contra Todos os Riscos (+ R$ 60,00/dia)</option>
+<option value="0">Sem Seguro</option>
+<option value="60">Parcial (+ R$ 60/dia)</option>
+<option value="120" selected>Completo (+ R$ 120/dia)</option>
 </select>
 </div>
-<div class="p-3 bg-black rounded border border-secondary mb-4">
-<div class="d-flex justify-content-between align-items-center">
-<span class="text-secondary">Valor Estimado Total:</span>
+<div class="p-3 bg-black rounded border border-secondary mb-4 d-flex justify-content-between align-items-center">
+<span class="text-secondary">Total Estimado:</span>
 <span class="fs-4 fw-bold text-success" id="spanTotal">R$ 0,00</span>
 </div>
-</div>
 <div class="d-flex gap-2">
-<button type="button" class="btn btn-outline-secondary w-50 rounded-pill py-2" onclick="fecharSubmenu()">Cancelar</button>
-<button type="submit" class="btn btn-primary w-50 rounded-pill py-2">Confirmar Reserva</button>
+<button type="button" class="btn btn-outline-secondary w-50 rounded-pill" onclick="fecharSubmenu()">Cancelar</button>
+<button type="submit" class="btn btn-primary w-50 rounded-pill">Reservar</button>
 </div>
 </form>
 </div>
 </div>
 
-<footer class="bg-dark text-secondary py-4 border-top border-secondary mt-auto">
-<div class="container">
-<div class="row g-4">
-<div class="col-md-4">
-<h5 class="text-white fw-bold mb-3">DevTeam AutoDrive</h5>
-<p class="small mb-0">Transformando a sua experiência de locação de veículos com tecnologia, segurança e agilidade em cada quilômetro.</p>
-</div>
-<div class="col-md-4">
-<h6 class="text-white fw-bold mb-3">Links Rápidos</h6>
-<ul class="list-unstyled small">
-<li class="mb-2"><a href="index.html" class="text-secondary text-decoration-none">Página Inicial</a></li>
-<li class="mb-2"><a href="pagina2.html" class="text-secondary text-decoration-none">Locadora de Veículos</a></li>
-<li class="mb-2"><a href="pagina3.html" class="text-secondary text-decoration-none">Contato e Reservas</a></li>
-</ul>
-</div>
-<div class="col-md-4">
-<h6 class="text-white fw-bold mb-3">Contato</h6>
-<p class="small mb-1"><i class="bi bi-geo-alt-fill text-danger me-2"></i> Av. Principal, 1000 - Centro</p>
-<p class="small mb-1"><i class="bi bi-telephone-fill text-danger me-2"></i> (11) 99999-9999</p>
-<p class="small mb-0"><i class="bi bi-envelope-fill text-danger me-2"></i> contato@devteamautodrive.com</p>
-</div>
-</div>
-<hr class="border-secondary my-3">
-<div class="text-center">
-<small>&copy; 2026 DevTeam - Locadora de Veículos. Todos os direitos reservados.</small>
-</div>
-</div>
+<!-- Rodapé -->
+<footer class="bg-dark text-secondary py-4 border-top border-secondary mt-auto text-center">
+<small>&copy; 2026 DevTeam - Todos os direitos reservados.</small>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-let precoDiariaGlobal = 0;
-
-function abrirSubmenu(nomeCarro, precoDiaria) {
-document.getElementById('modalCarTitle').innerText = 'Alugar: ' + nomeCarro;
-precoDiariaGlobal = precoDiaria;
-document.getElementById('inputDias').value = 1;
-document.getElementById('selectSeguro').value = '30';
-calcularTotal();
-const overlay = document.getElementById('rentalOverlay');
-overlay.classList.remove('d-none');
-overlay.classList.add('d-flex');
-}
-
-function fecharSubmenu() {
-const overlay = document.getElementById('rentalOverlay');
-overlay.classList.remove('d-flex');
-overlay.classList.add('d-none');
-}
-
-function calcularTotal() {
-const dias = parseInt(document.getElementById('inputDias').value) || 1;
-const seguroDiario = parseInt(document.getElementById('selectSeguro').value) || 0;
-const total = (precoDiariaGlobal + seguroDiario) * dias;
-document.getElementById('spanTotal').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
-}
-
-function finalizarAluguel(event) {
-event.preventDefault();
-alert('Reserva solicitada com sucesso! Entraremos em contato.');
-fecharSubmenu();
-}
-</script>
+<script src="pagina3.js"></script>
 </body>
 </html>
