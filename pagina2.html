@@ -6,59 +6,18 @@
 <title>AutoDrive - Locadora de Veículos</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<style>
-:root {
---bs-primary: #dc3545;
---bs-primary-rgb: 220, 53, 69;
-}
-.bg-primary-subtle {
-background-color: rgba(220, 53, 69, 0.1) !important;
-}
-.text-primary {
-color: #dc3545 !important;
-}
-.btn-primary {
-background-color: #dc3545;
-border-color: #dc3545;
-}
-.btn-primary:hover {
-background-color: #b02a37;
-border-color: #a52834;
-}
-.btn-outline-primary {
-color: #dc3545;
-border-color: #dc3545;
-}
-.btn-outline-primary:hover {
-background-color: #dc3545;
-border-color: #dc3545;
-color: #fff;
-}
-.page-link {
-color: #dc3545;
-}
-.page-item.active .page-link {
-background-color: #dc3545;
-border-color: #dc3545;
-color: #fff !important;
-}
-</style>
+<link rel="stylesheet" href="pagina2.css">
 </head>
 <body class="bg-black text-light min-vh-100 d-flex flex-column justify-content-between">
 <nav class="navbar navbar-expand-lg bg-dark border-bottom border-secondary shadow-sm">
 <div class="container">
-<a class="navbar-brand fw-bold text-danger d-flex align-items-center gap-2" href="#">
-<i class="bi bi-car-front-fill fs-3"></i>
-<span>DevTeam</span>
-</a>
-<button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-<span class="navbar-toggler-icon"></span>
-</button>
+<a class="navbar-brand fw-bold text-danger d-flex align-items-center gap-2" href="#"><i class="bi bi-car-front-fill fs-3"></i><span>DevTeam</span></a>
+<button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
 <div class="collapse navbar-collapse" id="navbarNav">
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link active text-danger fw-bold border-bottom border-danger border-2" href="index.html">Equipe</a></li>
-<li class="nav-item"><a class="nav-link text-light" href="pagina2.html">Locadora de Veiculos</a></li>
-<li class="nav-item"><a class="nav-link text-light" href="pagina3.html">.</a></li>
+<li class="nav-item"><a class="nav-link text-light" href="index.html">Equipe</a></li>
+<li class="nav-item"><a class="nav-link active text-danger fw-bold border-bottom border-danger border-2" href="pagina2.html">Locadora</a></li>
+<li class="nav-item"><a class="nav-link text-light" href="pagina3.html">Frota</a></li>
 </ul>
 </div>
 </div>
@@ -80,9 +39,7 @@ Alugue carros revisados, sem burocracia e com quilometragem ilimitada. Oferecemo
 <div class="col-md-4">
 <div class="card h-100 border-0 shadow-sm p-4 bg-dark text-light rounded-3 border-secondary border">
 <div class="card-body">
-<div class="text-danger fs-1 mb-3">
-<i class="bi bi-shield-check"></i>
-</div>
+<div class="text-danger fs-1 mb-3"><i class="bi bi-shield-check"></i></div>
 <h3 class="h5 fw-bold mb-2">100% Revisados</h3>
 <p class="text-secondary small mb-0">Nossa frota passa por rigorosas manutenções preventivas para garantir total segurança na sua viagem.</p>
 </div>
@@ -91,9 +48,7 @@ Alugue carros revisados, sem burocracia e com quilometragem ilimitada. Oferecemo
 <div class="col-md-4">
 <div class="card h-100 border-0 shadow-sm p-4 bg-dark text-light rounded-3 border-secondary border">
 <div class="card-body">
-<div class="text-danger fs-1 mb-3">
-<i class="bi bi-speedometer2"></i>
-</div>
+<div class="text-danger fs-1 mb-3"><i class="bi bi-speedometer2"></i></div>
 <h3 class="h5 fw-bold mb-2">Quilometragem Ilimitada</h3>
 <p class="text-secondary small mb-0">Viaje sem se preocupar com a distância. Rodar o quanto quiser sem custos adicionais por km.</p>
 </div>
@@ -102,9 +57,7 @@ Alugue carros revisados, sem burocracia e com quilometragem ilimitada. Oferecemo
 <div class="col-md-4">
 <div class="card h-100 border-0 shadow-sm p-4 bg-dark text-light rounded-3 border-secondary border">
 <div class="card-body">
-<div class="text-danger fs-1 mb-3">
-<i class="bi bi-file-earmark-text"></i>
-</div>
+<div class="text-danger fs-1 mb-3"><i class="bi bi-file-earmark-text"></i></div>
 <h3 class="h5 fw-bold mb-2">Sem Burocracia</h3>
 <p class="text-secondary small mb-0">Processo de locação rápido, digital e descomplicado para você retirar seu veículo com agilidade.</p>
 </div>
@@ -114,19 +67,11 @@ Alugue carros revisados, sem burocracia e com quilometragem ilimitada. Oferecemo
 <div class="d-flex justify-content-center mt-5">
 <nav aria-label="Page navigation example">
 <ul class="pagination">
-<li class="page-item">
-<a class="page-link bg-dark border-secondary" href="index.html" aria-label="Previous">
-<span aria-hidden="true">&laquo;</span>
-</a>
-</li>
+<li class="page-item"><a class="page-link bg-dark border-secondary" href="index.html" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 <li class="page-item"><a class="page-link bg-dark border-secondary" href="index.html">1</a></li>
 <li class="page-item active"><a class="page-link bg-dark border-secondary" href="pagina2.html">2</a></li>
 <li class="page-item"><a class="page-link bg-dark border-secondary" href="pagina3.html">3</a></li>
-<li class="page-item">
-<a class="page-link bg-dark border-secondary" href="pagina3.html" aria-label="Next">
-<span aria-hidden="true">&raquo;</span>
-</a>
-</li>
+<li class="page-item"><a class="page-link bg-dark border-secondary" href="pagina3.html" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 </ul>
 </nav>
 </div>
