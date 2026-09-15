@@ -1,0 +1,21 @@
+.profile-avatar {
+width: 90px;
+height: 90px;
+background-color: rgba(13, 110, 253, 0.1);
+color: #0d6efd;
+font-weight: bold;
+font-size: 1.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 2px solid rgba(13, 110, 253, 0.2);
+}
+.page-link {
+color: #0d6efd;
+}
+.page-item.active .page-link {
+background-color: #0d6efd;
+border-color: #0d6efd;
+color: #fff !important;
+}
