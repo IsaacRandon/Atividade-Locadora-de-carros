@@ -6,8 +6,8 @@
 <title>AutoDrive - Locadora</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="pagina3.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="stylesheet" href="pagina3.css">
 </head>
 <body class="bg-black text-light min-vh-100 d-flex flex-column justify-content-between">
 
@@ -25,23 +25,27 @@
 </div>
 </div>
 </nav>
-<div class="text-center mb-4">
-    <button class="btn btn-outline-danger rounded-pill px-4" onclick="compararCarros()">
-        <i class="bi bi-arrow-left-right me-2"></i> Comparar Modelos
-    </button>
-</div>
+
 <!-- Conteúdo Principal -->
 <main class="container py-5">
-<div class="text-center mb-5">
+<div class="text-center mb-4">
 <span class="badge bg-danger bg-opacity-10 text-danger px-3 py-2 rounded-pill mb-3">Frota Completa</span>
 <h1 class="display-4 fw-bold mb-2 text-white">Escolha o seu Veículo</h1>
 <p class="text-secondary">Selecione o modelo ideal para a sua jornada.</p>
+
+<!-- Botão de Comparação Dinâmica -->
+<button class="btn btn-outline-danger rounded-pill px-4 mt-3" onclick="compararCarrosSelecionados()">
+<i class="bi bi-arrow-left-right me-2"></i> Comparar Selecionados (<span id="contadorComparacao">0</span>)
+</button>
 </div>
 
-<!-- Grid de Cards -->
+<!-- Grid de Cards com Checkbox de Comparação -->
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <!-- 1. Onix -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Chevrolet Onix 1.0" onchange="atualizarContador()">
+</div>
 <img src="onix.png" class="card-img-top rounded mb-3" alt="Chevrolet Onix 1.0">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -56,7 +60,10 @@
 </div></div></div>
 
 <!-- 2. HB20 -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Hyundai HB20" onchange="atualizarContador()">
+</div>
 <img src="hb20.webp" class="card-img-top rounded mb-3" alt="Hyundai HB20">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -71,7 +78,10 @@
 </div></div></div>
 
 <!-- 3. Argo -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Fiat Argo 1.0" onchange="atualizarContador()">
+</div>
 <img src="argo.webp" class="card-img-top rounded mb-3" alt="Fiat Argo 1.0">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -86,7 +96,10 @@
 </div></div></div>
 
 <!-- 4. Prisma -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Chevrolet Prisma" onchange="atualizarContador()">
+</div>
 <img src="prisma.webp" class="card-img-top rounded mb-3" alt="Chevrolet Prisma">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -101,7 +114,10 @@
 </div></div></div>
 
 <!-- 5. Virtus -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Volkswagen Virtus" onchange="atualizarContador()">
+</div>
 <img src="virtus.webp" class="card-img-top rounded mb-3" alt="Volkswagen Virtus">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -116,7 +132,10 @@
 </div></div></div>
 
 <!-- 6. City -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Honda City" onchange="atualizarContador()">
+</div>
 <img src="city.webp" class="card-img-top rounded mb-3" alt="Honda City">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -131,7 +150,10 @@
 </div></div></div>
 
 <!-- 7. Renegade -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Jeep Renegade" onchange="atualizarContador()">
+</div>
 <img src="renegade.webp" class="card-img-top rounded mb-3" alt="Jeep Renegade">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -146,7 +168,10 @@
 </div></div></div>
 
 <!-- 8. Creta -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Hyundai Creta" onchange="atualizarContador()">
+</div>
 <img src="creta.webp" class="card-img-top rounded mb-3" alt="Hyundai Creta">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -161,7 +186,10 @@
 </div></div></div>
 
 <!-- 9. Compass -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Jeep Compass" onchange="atualizarContador()">
+</div>
 <img src="compass.webp" class="card-img-top rounded mb-3" alt="Jeep Compass">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -176,7 +204,10 @@
 </div></div></div>
 
 <!-- 10. Corolla -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Toyota Corolla" onchange="atualizarContador()">
+</div>
 <img src="corrola.webp" class="card-img-top rounded mb-3" alt="Toyota Corolla">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -191,7 +222,10 @@
 </div></div></div>
 
 <!-- 11. Civic -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="Honda Civic" onchange="atualizarContador()">
+</div>
 <img src="civic.webp" class="card-img-top rounded mb-3" alt="Honda Civic">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -206,7 +240,10 @@
 </div></div></div>
 
 <!-- 12. BMW 320i -->
-<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3">
+<div class="col"><div class="card h-100 bg-dark text-light border-secondary p-3 position-relative">
+<div class="position-absolute top-0 end-0 m-3 z-3">
+<input class="form-check-input bg-dark border-secondary check-comparar" type="checkbox" value="BMW 320i" onchange="atualizarContador()">
+</div>
 <img src="320i.webp" class="card-img-top rounded mb-3" alt="BMW 320i">
 <div class="card-body d-flex flex-column justify-content-between p-0">
 <div>
@@ -246,12 +283,8 @@
 <input type="number" id="inputDias" class="form-control bg-black text-light border-secondary" value="1" min="1" required oninput="calcularTotal()">
 </div>
 <div class="mb-3">
-<label class="form-label text-secondary small">Multa de Atraso (por dia)</label>
-<select id="selectMulta" class="form-select bg-black text-light border-secondary">
-<option value="50">R$ 50,00 (Básica)</option>
-<option value="100" selected>R$ 100,00 (Padrão)</option>
-<option value="200">R$ 200,00 (Rigorosa)</option>
-</select>
+<label class="form-label text-secondary small">Multa de Atraso (10% do valor total)</label>
+<input type="text" id="inputMulta" class="form-control bg-black text-light border-secondary" readonly value="R$ 0,00">
 </div>
 <div class="mb-4">
 <label class="form-label text-secondary small">Proteção / Seguro</label>
