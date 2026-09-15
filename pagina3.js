@@ -1,28 +1,28 @@
-// Base completa de dados para cálculo e comparação
+// Base de dados com valores semanais ajustados (multiplicados por 7 dias)
 const baseCarros = {
-    "Chevrolet Onix 1.0": { diaria: 90, cat: "Econômico", consumo: "14 km/l", portaMalas: "289 L" },
-    "Hyundai HB20": { diaria: 95, cat: "Econômico", consumo: "14.5 km/l", portaMalas: "300 L" },
-    "Fiat Argo 1.0": { diaria: 100, cat: "Econômico", consumo: "13.5 km/l", portaMalas: "300 L" },
-    "Chevrolet Prisma": { diaria: 140, cat: "Sedan", consumo: "12.5 km/l", portaMalas: "500 L" },
-    "Volkswagen Virtus": { diaria: 150, cat: "Sedan", consumo: "12 km/l", portaMalas: "521 L" },
-    "Honda City": { diaria: 160, cat: "Sedan", consumo: "13 km/l", portaMalas: "519 L" },
-    "Jeep Renegade": { diaria: 210, cat: "SUV", consumo: "10 km/l", portaMalas: "320 L" },
-    "Hyundai Creta": { diaria: 230, cat: "SUV", consumo: "10.5 km/l", portaMalas: "431 L" },
-    "Jeep Compass": { diaria: 250, cat: "SUV", consumo: "9.5 km/l", portaMalas: "410 L" },
-    "Toyota Corolla": { diaria: 280, cat: "Executivo", consumo: "11 km/l", portaMalas: "470 L" },
-    "Honda Civic": { diaria: 310, cat: "Executivo", consumo: "11.5 km/l", portaMalas: "495 L" },
-    "BMW 320i": { diaria: 450, cat: "Luxo", consumo: "9 km/l", portaMalas: "480 L" }
+    "Chevrolet Onix 1.0": { diaria: 90, semanal: 630, cat: "Econômico", consumo: "14 km/l", portaMalas: "289 L" },
+    "Hyundai HB20": { diaria: 95, semanal: 665, cat: "Econômico", consumo: "14.5 km/l", portaMalas: "300 L" },
+    "Fiat Argo 1.0": { diaria: 100, semanal: 700, cat: "Econômico", consumo: "13.5 km/l", portaMalas: "300 L" },
+    "Chevrolet Prisma": { diaria: 140, semanal: 980, cat: "Sedan", consumo: "12.5 km/l", portaMalas: "500 L" },
+    "Volkswagen Virtus": { diaria: 150, semanal: 1050, cat: "Sedan", consumo: "12 km/l", portaMalas: "521 L" },
+    "Honda City": { diaria: 160, semanal: 1120, cat: "Sedan", consumo: "13 km/l", portaMalas: "519 L" },
+    "Jeep Renegade": { diaria: 210, semanal: 1470, cat: "SUV", consumo: "10 km/l", portaMalas: "320 L" },
+    "Hyundai Creta": { diaria: 230, semanal: 1610, cat: "SUV", consumo: "10.5 km/l", portaMalas: "431 L" },
+    "Jeep Compass": { diaria: 250, semanal: 1750, cat: "SUV", consumo: "9.5 km/l", portaMalas: "410 L" },
+    "Toyota Corolla": { diaria: 280, semanal: 1960, cat: "Executivo", consumo: "11 km/l", portaMalas: "470 L" },
+    "Honda Civic": { diaria: 310, semanal: 2170, cat: "Executivo", consumo: "11.5 km/l", portaMalas: "495 L" },
+    "BMW 320i": { diaria: 450, semanal: 3150, cat: "Luxo", consumo: "9 km/l", portaMalas: "480 L" }
 };
 
-let precoGlobal = 0;
+let precoSemanalGlobal = 0;
 let carroSelecionadoNome = '';
 
-function abrirSubmenu(nome, preco) {
+function abrirSubmenu(nome, precoSemanal) {
     carroSelecionadoNome = nome;
     document.getElementById('modalCarTitle').innerText = 'Alugar: ' + nome;
-    precoGlobal = preco;
-    document.getElementById('inputDias').value = 1;
-    document.getElementById('selectSeguro').value = '120';
+    precoSemanalGlobal = precoSemanal;
+    document.getElementById('inputSemanas').value = 1;
+    document.getElementById('selectSeguro').value = '700'; // Seguro padrão completo semanal
     calcularTotal();
     document.getElementById('rentalOverlay').classList.replace('d-none', 'd-flex');
 }
@@ -32,18 +32,27 @@ function fecharSubmenu() {
 }
 
 function calcularTotal() {
-    const dias = parseInt(document.getElementById('inputDias').value) || 1;
-    const seguro = parseInt(document.getElementById('selectSeguro').value) || 0;
-    const total = (precoGlobal + seguro) * dias;
+    let semanas = parseInt(document.getElementById('inputSemanas').value) || 1;
     
-    // Multa de atraso fixa em 10% do valor total da locação
+    // Validação estrita para o limite de 10 semanas
+    if (semanas > 10) {
+        semanas = 10;
+        document.getElementById('inputSemanas').value = 10;
+    } else if (semanas < 1) {
+        semanas = 1;
+        document.getElementById('inputSemanas').value = 1;
+    }
+
+    const seguro = parseInt(document.getElementById('selectSeguro').value) || 0;
+    const total = (precoSemanalGlobal + seguro) * semanas;
+    
+    // Multa de atraso (10% do valor total)
     const multa = total * 0.10;
 
-    document.getElementById('spanTotal').innerText = 'R$ ' + total.toFixed(2).replace('.', ',');
-    document.getElementById('inputMulta').value = 'R$ ' + multa.toFixed(2).replace('.', ',');
+    document.getElementById('spanTotal').innerText = 'R$ ' + total.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('inputMulta').value = 'R$ ' + multa.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-// Aluguel com SweetAlert2
 function finalizarAluguel(e) {
     e.preventDefault();
     fecharSubmenu();
@@ -58,13 +67,11 @@ function finalizarAluguel(e) {
     });
 }
 
-// Atualiza o contador de selecionados na interface
 function atualizarContador() {
     const checkboxes = document.querySelectorAll('.check-comparar:checked');
     document.getElementById('contadorComparacao').innerText = checkboxes.length;
 }
 
-// Sistema de Comparação Dinâmica Personalizada
 function compararCarrosSelecionados() {
     const checkboxes = document.querySelectorAll('.check-comparar:checked');
     
