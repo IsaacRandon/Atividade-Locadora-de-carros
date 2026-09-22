@@ -14,7 +14,13 @@ const carros = [
 ];
 let precoSemanalGlobal = 0;
 let carroSelecionadoNome = '';
+
 window.addEventListener('DOMContentLoaded', () => {
+renderizarGrid();
+atualizarRanking();
+});
+
+function renderizarGrid() {
 const grid = document.getElementById('gridCarros');
 if (!grid) return;
 grid.innerHTML = carros.map(c => `
@@ -38,7 +44,8 @@ grid.innerHTML = carros.map(c => `
 </div>
 </div>
 `).join('');
-});
+}
+
 function abrirSubmenu(nome, precoSemanal) {
 carroSelecionadoNome = nome;
 document.getElementById('modalCarTitle').innerText = 'Alugar: ' + nome;
@@ -48,9 +55,11 @@ document.getElementById('selectSeguro').value = '700';
 calcularTotal();
 document.getElementById('rentalOverlay').classList.replace('d-none', 'd-flex');
 }
+
 function fecharSubmenu() {
 document.getElementById('rentalOverlay').classList.replace('d-flex', 'd-none');
 }
+
 function calcularTotal() {
 let semanas = parseInt(document.getElementById('inputSemanas').value) || 1;
 if (semanas > 10) { semanas = 10; document.getElementById('inputSemanas').value = 10; }
@@ -62,22 +71,61 @@ const fmt = v => 'R$ ' + v.toLocaleString('pt-BR', { minimumFractionDigits: 2, m
 document.getElementById('spanTotal').innerText = fmt(total);
 document.getElementById('inputMulta').value = fmt(multa);
 }
+
 function finalizarAluguel(e) {
 e.preventDefault();
+salvarAluguelNoRanking(carroSelecionadoNome);
 fecharSubmenu();
+atualizarRanking();
 Swal.fire({
 icon: 'success',
 title: 'Parabéns!',
-text: `O veículo ${carroSelecionadoNome} foi alugado com sucesso!`,
+text: `O veículo ${carroSelecionadoNome} foi alugado com sucesso e computado no ranking!`,
 confirmButtonColor: '#dc3545',
 background: '#212529',
 color: '#fff'
 });
 }
+
+function salvarAluguelNoRanking(nomeCarro) {
+let ranking = JSON.parse(localStorage.getItem('rankingAlugueis')) || {};
+ranking[nomeCarro] = (ranking[nomeCarro] || 0) + 1;
+localStorage.setItem('rankingAlugueis', JSON.stringify(ranking));
+}
+
+function atualizarRanking() {
+let ranking = JSON.parse(localStorage.getItem('rankingAlugueis')) || {};
+let arrayRanking = Object.keys(ranking).map(nome => ({
+nome: nome,
+total: ranking[nome]
+}));
+arrayRanking.sort((a, b) => b.total - a.total);
+let top5 = arrayRanking.slice(0, 5);
+const tabela = document.getElementById('tabelaRanking');
+if (!tabela) return;
+if (top5.length === 0) {
+tabela.innerHTML = `<tr><td colspan="3" class="text-center text-secondary py-3">Nenhum aluguel realizado ainda. Seja o primeiro!</td></tr>`;
+return;
+}
+let html = '';
+top5.forEach((item, index) => {
+let badgeCor = index === 0 ? 'bg-warning text-dark' : (index === 1 ? 'bg-secondary text-white' : (index === 2 ? 'bg-danger text-white' : 'bg-dark border border-secondary text-light'));
+html += `
+<tr>
+<td><span class="badge ${badgeCor} fw-bold px-2 py-1">#${index + 1}</span></td>
+<td class="fw-bold text-white">${item.nome}</td>
+<td class="text-end fw-bold text-success">${item.total} aluguel(is)</td>
+</tr>
+`;
+});
+tabela.innerHTML = html;
+}
+
 function atualizarContador() {
 const qtd = document.querySelectorAll('.check-comparar:checked').length;
 document.getElementById('contadorComparacao').innerText = qtd;
 }
+
 function compararCarrosSelecionados() {
 const checkboxes = document.querySelectorAll('.check-comparar:checked');
 if (checkboxes.length === 0) {
